@@ -1,0 +1,47 @@
+﻿<Window x:Class="ScottPlotMvvm.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:prism="http://prismlibrary.com/"
+        prism:ViewModelLocator.AutoWireViewModel="True"
+        Title="ScottPlot with MVVM" Height="480" Width="640">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="0"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="40"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="40"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="40"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="40"/>
+            </Grid.ColumnDefinitions>
+
+            <Button Grid.Column="1" Command="{Binding PauseClick}">
+                <Viewbox>
+                    <TextBlock Margin="10, 0" Text="Pause"/>
+                </Viewbox>
+            </Button>
+            <Button Grid.Column="3" Command="{Binding ResumeClick}">
+                <Viewbox>
+                    <TextBlock Margin="10, 0" Text="Resume"/>
+                </Viewbox>
+            </Button>
+            <Button Grid.Column="5" Command="{Binding ClearClick}">
+                <Viewbox>
+                    <TextBlock Margin="10, 0" Text="Clear"/>
+                </Viewbox>
+            </Button>
+
+        </Grid>
+
+        <WpfPlot Grid.Row="3" x:Name="LineGraph"/>
+        
+    </Grid>
+</Window>
